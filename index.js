@@ -1,5 +1,3 @@
-import path from 'path';
-
 // This is called like:
 // $ node index.js golf-scorer
 // Which will execute the subject function in labs/golf-scorer.js
@@ -22,9 +20,9 @@ async function executeFunctionLab() {
   });
   
   // And color code the results.
-  console.log(`labs/${filename}.js:`);
+  console.log(`🧪 labs/${filename}.js:`);
   results.forEach((result, index) => {
-    console.log(`  ${result}`);
+    console.log(`  ${result}: subject(${testCases[index].input}) => ${testCases[index].output}`);
   });
 }
 
