@@ -1,22 +1,26 @@
 export const testCases = [
     {
-        input: [[1, 2]],
+        input: [1, 2],
         output: 3,
     },
     {
-        input: [[10, 3]],
+        input: [10, 3],
         output: 3,
     },
     {
-        input: [[9, 9]],
+        input: [9, 9],
         output: 8,
     },
     {
-        input: [[5, 5, 5]],
+        input: [5, 5, 5],
         output: 5,
     },
     {
-        input: [[0, 0]],
+        input: [0, 0],
+        output: 0,
+    },
+    {
+        input: ['K', 'Q'],
         output: 0,
     }
 ];
