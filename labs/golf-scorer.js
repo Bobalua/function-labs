@@ -28,7 +28,7 @@ export const testCases = [
         output: 'Go Home!',
     },
     {
-    input: [ 1, Math.random() * 10 ],
+        input: [ 1, Math.random() * 10 ],
         output: 'Hole-in-one!',
     },
     {

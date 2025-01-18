@@ -10,7 +10,7 @@ async function executeFunctionLab() {
   let pass = true;
   testCases.forEach((testCase, index) => {
     const result = subject(...testCase.input);
-
+    console.log(result + ' stupid');
     if (result === testCase.output) {
       results.push(`\x1b[42m[PASS]\x1b[0m`);
     } else {
