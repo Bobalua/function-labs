@@ -10,7 +10,7 @@ async function executeFunctionLab() {
   let pass = true;
   testCases.forEach((testCase, index) => {
     const result = subject(...testCase.input);
-    console.log(result + ' stupid');
+    testCase.actual = result;
     if (result === testCase.output) {
       results.push(`\x1b[42m[PASS]\x1b[0m`);
     } else {
@@ -22,7 +22,8 @@ async function executeFunctionLab() {
   // And color code the results.
   console.log(`🧪 labs/${filename}.js:`);
   results.forEach((result, index) => {
-    console.log(`  ${result}: subject(${testCases[index].input}) => ${testCases[index].output}`);
+    const testCase = testCases[index];
+    console.log(`  ${result}: subject(${testCase.input}) => ${testCase.output} (${testCase.actual})`);
   });
 
   process.exit(pass ? 0 : 1);
