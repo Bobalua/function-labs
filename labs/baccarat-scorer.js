@@ -43,8 +43,9 @@ export function subject(...hand) {
     // will check if card is in faceCardScore, if it is, it will use that value for scoring
     // if not, it will use the numerical value of the card
     // the third value will do the same, however if it doesn't exist, it will default to a '0'
-    let handScore = ((faceCardScore[hand[0]]) || hand[0]) + ((faceCardScore[hand[1]]) || hand[1]) 
-        + ((faceCardScore[hand[2]]) || hand[2] || 0);  // unsure of moving this to two lines.  please advise on best practices.
+    let handScore = ((faceCardScore[hand[0]]) || hand[0]) +
+                    ((faceCardScore[hand[1]]) || hand[1]) + 
+                    ((faceCardScore[hand[2]]) || hand[2] || 0);  
 
     // console.log(handScore); // debug
 

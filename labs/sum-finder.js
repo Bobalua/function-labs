@@ -31,3 +31,10 @@ export function subject(nums, target) {
     // Your code here
     return [];
 }
+
+/*
+- Going to start with the 'brute force' method, and revise upon completion
+- nested for loops will check every other number in array against the target number.  
+- possibly use pop() to remove the target value from array before iterating over it
+    - move into a variable (let targetValue = input.flat().pop(0)) (? array name ?)
+*/
