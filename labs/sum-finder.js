@@ -28,7 +28,9 @@ const testCases = [
 */
 
 export function subject(nums, target) {
-    // Your code here
+    for (let i = 0; i < nums.length; i++) {
+        console.log(i);
+    }
     return [];
 }
 

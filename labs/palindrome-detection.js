@@ -24,7 +24,14 @@ const testCases = [
 /* A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward. */
 
 export function subject(str) {
-    return false;
+    function palindromeTest(str) {
+        for (let i = 0; i < Math.floor(str.length / 2); i++) {
+            if (str[i] != str[str.length - 1 - i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 /*
