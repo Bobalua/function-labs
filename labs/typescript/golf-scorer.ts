@@ -1,3 +1,4 @@
+// 2025-02-06T08:29:20.355Z - Attempt 4 - ✅ Success after 13 minutes
 interface GolfScoreTestCase {
   input: [number, number];
   output: string;
@@ -68,6 +69,23 @@ Return the result of a golf game based on the number of swings and the par.
 ect.
 */
 
-export function subject(swings: number, par: number): string {
-  return 'Par';
-}
+// added undefined to output type because typescript was complaining
+export function subject(swings: number, par: number): string | undefined {
+    if (swings == 1) {
+        return 'Hole-in-one!';
+    } else if (swings - par <= -2) {
+        return 'Eagle';
+    } else if (swings - par == -1) {
+        return 'Birdie';
+    } else if (swings == par) {
+        return 'Par';
+    } else if (swings - par == 1) {
+        return 'Bogey';
+    } else if (swings - par == 2) {
+        return 'Double Bogey'
+    } else if (swings - par > 2) {
+        return 'Go Home!';
+    };
+};
+
+// I feel like there all the typescript was already written.  Did I go a different direction than intended?

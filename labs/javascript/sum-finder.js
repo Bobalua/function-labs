@@ -1,4 +1,18 @@
-const testCases = [
+// 2025-02-06T06:46:09.982Z - Attempt 1 - ✅ Success after 30 seconds
+// 2025-02-06T06:44:45.080Z - Attempt 1 - ✅ Success after 10 seconds
+// 2025-02-06T06:43:48.698Z - Attempt 1 - ✅ Success after 10 seconds
+// 2025-02-06T06:42:36.791Z - Attempt 1 - ✅ Success after 5 seconds
+// 2025-02-06T06:41:53.651Z - Attempt 1 - ✅ Success after 10 seconds
+// 2025-02-06T06:37:15.102Z - Attempt 1 - ✅ Success after 5 seconds
+// 2025-02-06T06:36:23.720Z - Attempt 1 - ✅ Success after 10 seconds
+// 2025-02-06T06:35:43.917Z - Attempt 1 - ✅ Success after 40 seconds
+// 2025-02-06T06:34:26.288Z - Attempt 2 - ✅ Success after a minute
+// 2025-02-06T06:24:30.598Z - Attempt 2 - ✅ Success after a minute
+// 2025-02-06T06:21:14.478Z - Attempt 2 - ✅ Success after 30 seconds
+// 2025-02-06T06:19:11.924Z - Attempt 13 - ✅ Success after 53 minutes
+// 2025-02-06T06:19:10.908Z - Attempt 5 - ✅ Success after 8 minutes
+// 2025-02-06T06:08:33.165Z - Attempt 1 - ❌ Failed after 45 seconds
+export const testCases = [
     {
         input: [[2,7,11,15], 9],
         output: [0,1], // 2 + 7 = 9
@@ -11,6 +25,14 @@ const testCases = [
         input: [[3,3], 6],
         output: [0,1], // 3 + 3 = 6
     },
+    {
+        input: [[1, 2, 3, 4, 5, 20], 25],
+        output: [4, 5], // 3 + 3 = 6
+    },
+    {
+        input: [[0, 1, 1, 1, 1, 1, 5], 6],
+        output: [1, 6], // 3 + 3 = 6
+    }
 ]
 // possible edges to add:
     //- a zero in the array
@@ -22,7 +44,7 @@ const testCases = [
 
     Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
         - You may assume that each input would have exactly one solution, and you may not use the same element twice.
-        - Sort the array before returning the indices.
+        
 
     Constraints:
         - Only one valid answer exists.
@@ -32,9 +54,16 @@ const testCases = [
 */
 
 export function subject(nums, target) {
-    // Your code here
-    return [];
-}
+    let targetValue = target;
+    nums = nums.flat();
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i + 1; j < nums.length; j++) {
+            if (nums[i] + nums[j] == targetValue) {
+                return [i, j];
+            };
+        };   
+    };
+};
 
 /*
 - Going to start with the 'brute force' method, and revise upon completion
@@ -45,21 +74,9 @@ export function subject(nums, target) {
 
 // removing the target value from the end of input array 
 // and putting it inside the 'targetValue' variable
-let targetValue = inputs.pop();
 
 // iterating over input array.  For every iteration, there is another loop
 // that will also iterate through the same array (i and j are the respective indexes)
 // if i and j are on the same index position, it will not compare and move to the next iteration
 // every other iteration will check if the sum of the two current values is equivalent to the target value
 // if false, it will move to the next iteration. If true, it will return an array with the correct indexes
-for (let i = 0; i < input.length; i++) {
-    for (let j = 0; j < input.lengh; j++) {
-        if (i == j) {
-            continue;
-        } else if(i + j == targetValue) {
-            return [i, j];
-        };
-    };
-};  // I wrote this at work and didnt have time to test anything at all.  
-    // I really wanted to get thoughts on paper. I am confident that the concept is 
-    // sound, but am sure there is syntactical errors innumerable.  

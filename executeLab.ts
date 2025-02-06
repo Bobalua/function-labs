@@ -41,10 +41,16 @@ async function executeFunctionLab(): Promise<void> {
 
   filteredTestCases.forEach((testCase: TestCase, index: number) => {
     logs.push([]);
-    const result = subject(...testCase.input);
+    let result;
+    if (typeof testCase.input == 'string') {
+      result = subject(testCase.input);
+    } else {
+      result = subject(...testCase.input);
+    }
+    
     testCase.actual = result;
     testCase.logs = logs[logs.length - 1];
-    if (result === testCase.output) {
+    if (dump(result) === dump(testCase.output)) {
       results.push(`\x1b[42m[PASS]\x1b[0m`);
     } else {
       results.push(`\x1b[41m[FAIL]\x1b[0m`);

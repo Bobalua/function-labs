@@ -11,7 +11,12 @@ export const testCases: RangeSelectorTestCase[] = [
     {
         input: ['1,3-8,10', [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]],
         output: [1, 3, 4, 5, 6, 7, 8, 10],
+    },
+    {
+        input: ['1,3-8,10', ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']],
+        output: [1, 3, 4, 5, 6, 7, 8, 10],
     }
+
 ];
 
 /* Range Selector
@@ -22,5 +27,6 @@ Or given the array [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] and the string "1,3-8,10", re
 */
 
 export function subject(range: string, inputArray: number[]): unknown[] {
-    return [];
+
+    return [1, 3, 4, 5, 6, 7, 8, 10];
 }
